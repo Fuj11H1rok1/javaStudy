@@ -1,0 +1,24 @@
+package javastudy;
+
+import java.util.Scanner;
+
+public class methodPra {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		ここからメイン
+		
+		Scanner id = new Scanner(System.in);
+		id(0);
+		
+		
+		
+	}
+//	ここからメソッド
+	static void id(int id) {
+		String [] name = {"岩鬼","殿馬","里中","山田","微笑","上下","蛸田","高代","香車"};
+		System.out.println(name[id]);
+	}
+	
+
+}

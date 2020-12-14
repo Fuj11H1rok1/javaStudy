@@ -1,0 +1,78 @@
+package javastudy;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class genteiJanken {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[]names= {"グー","チョキ","パー"};
+		
+		Scanner s = new Scanner(System.in);
+		Random r = new Random();
+//		プレイヤーの星
+		int ystar = 3;
+//		CPの星
+		int cstar = 3;
+		int you = 0;
+		int cp = 0;
+		int youwin = 0;
+		int cpwin = 0;
+		
+//		プレイヤーの持ち札『グー(g)チョキ(c)パー(p)』各4枚
+		int youg = 4;
+		int youc = 4;
+		int youp = 4;
+		int yourhand = youg + youc + youp;
+//		プレイヤーの持ち札『グー(g)チョキ(c)パー(p)』各4枚
+		int cpg = 4;
+		int cpc = 4;
+		int cpp = 4;
+		int cphand = cpg + cpc + cpp;
+		
+		
+		
+		
+		while((yourhand > 0) && (cphand > 0))
+			{
+				System.out.println("チェック。セット……");
+				you = s.nextInt();
+				cp = r.nextInt(2);
+				System.out.println("オープン！");
+				System.out.println("（自分）"+names[you]+"！！"+"　VS "+"（相手）"+names[cp]+"！！");
+				
+				if( you==cp )
+				{
+					System.out.println("あいこが出たのでもう一度！");
+					System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+				}
+				else if((you == 0 && cp == 1)||(you == 1 && cp == 2)||(you == 2 && cp == 0))
+				{
+					System.out.println("あなたの勝ちです！");
+					System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+					youwin ++;
+				}
+				else 
+				{
+					System.out.println("あなたの負けです。");
+					System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+					cpwin ++;
+				}
+			
+			
+			
+			}
+		if( cpwin == 3 )
+		{
+			System.out.println("CPが先に三回勝ちました。");
+		}
+		else if( youwin == 3 )
+		{
+			System.out.println("あなたが先に三回勝ちました。");
+			
+		}
+	}
+
+}

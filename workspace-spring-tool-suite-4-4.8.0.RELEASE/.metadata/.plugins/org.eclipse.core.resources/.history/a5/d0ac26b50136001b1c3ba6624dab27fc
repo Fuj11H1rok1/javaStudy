@@ -1,0 +1,42 @@
+package javastudy;
+
+public class Ecard {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//EMPEROR側
+		String[]eSide = {"皇帝","市民","市民","市民","市民"};
+		//SLAVE側
+		String[]sSide = {"奴隷","市民","市民","市民","市民"};
+		
+		judgment("皇帝","奴隷");
+	}
+	//＝＝＝＝＝＝＝メソッド＝＝＝＝＝＝
+	//勝利判定
+	static void judgment (String me,String cp) {
+		switch(me) {
+		case "皇帝":
+			if(cp.equals("奴隷")) 
+				System.out.println("YOULOSE");
+			else
+				System.out.println("YOUWIN");
+				break;
+		case "奴隷":
+			if(cp.equals("皇帝")) 
+				System.out.println("YOUWIN");
+			else
+				System.out.println("YOULOSE");
+			break;
+		case "市民":
+			if(cp.equals("奴隷")) 
+				System.out.println("YOUWIN");
+			else if(cp.equals("皇帝"))
+				System.out.println("YOULOSE");
+			else
+				System.out.println("DRAW");
+				break;
+		}
+		
+	}
+	
+}

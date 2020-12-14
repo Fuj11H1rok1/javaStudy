@@ -1,0 +1,116 @@
+package javastudy;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class JavaJanken {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		課題2ー1＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//		System.out.println("じゃんけんゲーム");
+//		System.out.println("コンピューターとじゃんけんで対決しましょう！");
+//		System.out.println("グー[0]チョキ[1]パー[2]　グーチョキパーの右側に表記された0~2から選択し、半角数字で入力してみよう！");
+//		Scanner s = new Scanner(System.in);
+//		Random r = new Random();
+//		int you = s.nextInt();
+//		int y = r.nextInt(2);
+//		  
+//		String[]names= {"グー","チョキ","パー"};
+//		System.out.println("最初はグー！ ジャンケン！！");
+//		System.out.println("（自分）"+names[you]+"！！"+"　VS "+"（相手）"+names[y]+"！！");
+//		＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+		
+//		課題2ー2＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+//		System.out.println("じゃんけんゲーム");
+//		System.out.println("コンピューターとじゃんけんで対決しましょう！");
+//		System.out.println("グー[0]チョキ[1]パー[2]　グーチョキパーの右側に表記された0~2から選択し、半角数字で入力してみよう！");
+//		
+//		String[]names= {"グー","チョキ","パー"};
+//		
+//		int i = 0;
+//		Scanner s = new Scanner(System.in);
+//		Random r = new Random();
+//		int you = 0;
+//		int cp = 0;
+//		
+//		do
+//		{
+//			you = s.nextInt();
+//			cp = r.nextInt(2);
+//			System.out.println("最初はグー！ ジャンケン！！");
+//			System.out.println("（自分）"+names[you]+"！！"+"　VS "+"（相手）"+names[cp]+"！！");
+//			i++;
+//			
+//			if( you==cp )
+//			{
+//				System.out.println("あいこが出たのでもう一度！");
+//				System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+//			}
+//			else if((you == 0 && cp == 1)||(you == 1 && cp == 2)||(you == 2 && cp == 0))
+//			{
+//				System.out.println("あなたの勝ちです！");
+//			}
+//			else 
+//			{
+//				System.out.println("あなたの負けです。");
+//			}
+//		}while(cp==you);
+//		＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝
+		
+		System.out.println("じゃんけんゲーム");
+		System.out.println("コンピューターとじゃんけんで対決しましょう！");
+		System.out.println("グー[0]チョキ[1]パー[2]　グーチョキパーの右側に表記された0~2から選択し、半角数字で入力してみよう！");
+		System.out.println("先に三回勝利した方の勝ちです。");
+		String[]names= {"グー","チョキ","パー"};
+		
+		
+		Scanner s = new Scanner(System.in);
+		Random r = new Random();
+		int you = 0;
+		int cp = 0;
+		int youwin = 0;
+		int cpwin = 0;
+		
+		while((cpwin < 3) || (youwin < 3))
+			{
+			do 
+			{
+				you = s.nextInt();
+				cp = r.nextInt(2);
+				System.out.println("最初はグー！ ジャンケン！！");
+				System.out.println("（自分）"+names[you]+"！！"+"　VS "+"（相手）"+names[cp]+"！！");
+				
+				if( you==cp )
+				{
+					System.out.println("あいこが出たのでもう一度！");
+					System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+				}
+				else if((you == 0 && cp == 1)||(you == 1 && cp == 2)||(you == 2 && cp == 0))
+				{
+					System.out.println("あなたの勝ちです！");
+					System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+					youwin ++;
+				}
+				else 
+				{
+					System.out.println("あなたの負けです。");
+					System.out.println("グー[0]チョキ[1]パー[2]からもう一度入力してみよう！");
+					cpwin ++;
+				}
+			}while(cp==you);
+			
+			if( youwin == 3 )
+			{
+				System.out.println("あなたが先に三回勝ちました。");
+			}
+			else if( cpwin == 3 )
+			{
+				System.out.println("CPが先に三回勝ちました。");
+			}
+			
+			}
+		
+	}
+
+}

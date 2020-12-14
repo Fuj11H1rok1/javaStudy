@@ -1,0 +1,19 @@
+package javastudy;
+
+public class praJava {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[]name={"ありがとう"};
+		
+		String s = "ありがとう";
+		
+		if(name[0].equals(s)) {
+			System.out.println("同じ");
+		}
+		else
+			System.out.println("不一致");
+	}
+
+}

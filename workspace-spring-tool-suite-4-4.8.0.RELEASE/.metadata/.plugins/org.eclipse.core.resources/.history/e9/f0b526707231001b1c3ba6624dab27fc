@@ -1,0 +1,78 @@
+package javastudy;
+import java.util.Collections;
+import java.util.ArrayList;
+public class randam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		 
+		//1～10の整数値を持つリストを用意
+ 		for(int i = 1 ; i <= 12 ; i++) {
+ 			list.add(i);
+ 		}
+ 		//リストを表示（確認用）
+ 		System.out.println(list);
+
+ 		//shuffleメソッドで上で作ったリストをシャッフル
+ 		Collections.shuffle(list);
+ 
+ 		//ランダムにした結果を表示
+ 		System.out.println(list);
+ 		
+ 		ArrayList<String> handList = new ArrayList<String>();
+ 		 
+ 		handList.add("グー");
+ 		handList.add("グー");
+ 		handList.add("グー");
+ 		handList.add("グー");
+ 		handList.add("チョキ");
+ 		handList.add("チョキ");
+ 		handList.add("チョキ");
+ 		handList.add("チョキ");
+ 		handList.add("パー");
+ 		handList.add("パー");
+ 		handList.add("パー");
+ 		handList.add("パー");
+		//indexで要素が設定されているはず
+ 		
+ 		//リストを表示（確認用）
+ 		System.out.println(handList);
+ 		//要素数を表示
+ 		System.out.println(handList.size());
+
+ 		//shuffleメソッドで上で作ったリストをシャッフル
+// 		Collections.shuffle(handList);
+ 
+ 		//ランダムにした結果を表示
+// 		System.out.println(handList);
+ 		
+// 		要素の削除（indexOf関数を使った場合）
+ 		handList.remove(handList.indexOf("グー"));
+ 		
+ 		//削除後のリストを表示
+ 		System.out.println(handList);
+ 		//削除後の要素数を表示
+ 		System.out.println(handList.size());
+ 		
+ 		
+ 		
+ 		
+// 		System.out.println("▽「handList.remove(1)」実行前");
+// 		for(int i = 0 ; i <= handList.size() ; i++) {
+// 			System.out.println(handList.get(i));
+// 		}
+ 		
+// 		handList.remove(1);
+// 		
+// 		System.out.println("▽「handList.remove(1)」実行後");
+// 		for(int i = 0 ; i <= handList.size() ; i++) {
+// 			System.out.println(handList.get(i));
+// 		}
+
+	}
+
+}

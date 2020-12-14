@@ -1,0 +1,28 @@
+package javastudy;
+import java.util.Collections;
+import java.util.ArrayList;
+public class randam {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+
+		
+		ArrayList<Integer> list = new ArrayList<Integer>();
+ 
+		//1～10の整数値を持つリストを用意
+ 		for(int i = 0 ; i <= 10 ; i++) {
+ 			list.add(i);
+ 		}
+ 		//リストを表示（確認用）
+ 		System.out.println(list);
+
+ 		//shuffleメソッドで上で作ったリストをシャッフル
+ 		Collections.shuffle(list);
+ 
+ 		//ランダムにした結果を表示
+ 		System.out.println(list);
+
+	}
+
+}

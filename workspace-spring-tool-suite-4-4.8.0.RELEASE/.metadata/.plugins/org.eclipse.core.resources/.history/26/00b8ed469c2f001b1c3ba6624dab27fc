@@ -1,0 +1,57 @@
+package javastudy;
+
+import java.util.Scanner;
+
+public class methodPra {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		ここからメイン
+		
+		System.out.println("ログインIDを入力");
+		int id =0;
+		Scanner i = new Scanner(System.in);
+		id = i.nextInt();
+//		＝＝＝＝＝＝スキャナーで値を入力。メソッドのnameリストから抽出＝＝＝＝＝＝＝
+		id(id);
+		
+		
+		System.out.println("出庫数を入力");
+//		int out = 0;
+		Scanner o = new Scanner(System.in);
+		int out = o.nextInt();
+		System.out.println("単位を入力");
+//		String unit ;
+		Scanner u = new Scanner(System.in);
+		 String unit = u.nextLine();
+		int total = 0;
+		total = zaiko(100,out,"箱");
+		System.out.println(total);
+		
+		
+			
+	}
+//	ここからメソッド
+	
+//	====職員リスト====
+	static void id(int i) {
+		String [] name = {"岩鬼","殿馬","里中","山田","微笑","上下","蛸田","高代","香車"};
+//		=== int max はnameの要素数 ===
+		int max = name.length -1;
+		System.out.println("社員名『"+name[i]+"』");
+
+	}
+	
+	
+//	====在庫管理====
+	static int zaiko(int total,int out,String unit) {
+			if(total<10) {
+				System.out.println("補充してください。");
+			}
+			System.out.println("出庫数"+out+unit);
+			return total - out;
+		}
+	}
+	
+
+

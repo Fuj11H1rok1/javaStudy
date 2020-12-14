@@ -1,0 +1,26 @@
+package javastudy;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Gacha {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Scanner b = new Scanner(System.in);
+		  Random g = new Random();
+		  
+		  int budghet = 0;
+		  int gacha = 0;
+		  
+		  System.out.println("ガチャ一回200円、予算を入力してみよう！");
+		  System.out.println("最高レア度は⭐5キャラ※かなり出にくいよ︎");
+		  
+		  budghet = b.nextInt();
+		  gacha = g.nextInt(100);
+		
+	}
+
+}

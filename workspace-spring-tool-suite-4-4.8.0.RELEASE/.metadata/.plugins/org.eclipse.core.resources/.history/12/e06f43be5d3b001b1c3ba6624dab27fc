@@ -1,0 +1,107 @@
+package javastudy;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Ecard {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int me ;
+		int cp ;
+		int capital = 0;
+		
+		Scanner s = new Scanner(System.in);
+		Scanner t = new Scanner(System.in);
+		Random r = new Random();
+		
+		System.out.println("奴隷側か皇帝側かランダムで決めます,所持金を入力後”Enter”キーを押してください");
+		cp = r.nextInt(1);
+		System.out.println(cp);
+		capital = t.nextInt();
+		System.out.println("軍資金"+capital+"円");
+		switch (cp) {
+		case 1:
+			System.out.println("皇帝側からスタート");
+			break;
+		case 0:
+			System.out.println("奴隷側からスタート");
+			break;
+		}
+		//EMPEROR側
+		String[]eSide = {"皇帝","市民","市民","市民","市民"};
+		//SLAVE側
+		String[]sSide = {"奴隷","市民","市民","市民","市民"};
+		
+		me = s.nextInt();
+		System.out.println(eSide[me]);
+		cp = r.nextInt(4);
+		System.out.println(sSide[cp]);
+		
+		judgment(eSide[me],sSide[cp]);
+		
+		
+//		動作テスト======================
+//		judgment("皇帝","奴隷");
+//		lose(100,"皇帝側");
+		
+//		==============================
+		
+	}
+	//＝＝＝＝＝＝＝メソッド＝＝＝＝＝＝
+	
+	//勝利判定
+	static void judgment (String me,String cp) {
+		switch(me) {
+		case "皇帝":
+			if(cp.equals("奴隷")) 
+				System.out.println("YOULOSE");
+			else
+				System.out.println("YOUWIN");
+				break;
+		case "奴隷":
+			if(cp.equals("皇帝")) 
+				System.out.println("YOUWIN");
+			else
+				System.out.println("YOULOSE");
+			break;
+		case "市民":
+			if(cp.equals("奴隷")) 
+				System.out.println("YOUWIN");
+			else if(cp.equals("皇帝"))
+				System.out.println("YOULOSE");
+			else
+				System.out.println("DRAW");
+				break;
+			}
+		}
+	//賞金計算(勝ちパターン)
+	static int win(int pay, String me) {
+		if(me.equals("奴隷側")) {
+			System.out.println(me+"で勝利したので賞金10倍です");
+			pay = pay*10;
+			System.out.println(pay+"円獲得");
+		}
+		else {
+			pay = pay*2;
+			System.out.println(pay+"円獲得");
+		}
+		return pay;
+	 }
+	//賞金計算(負けパターン)
+	static int lose(int pay, String me) {
+		if(me.equals("皇帝側")) {
+			System.out.println(me+"で敗北したので10倍支払い");
+			pay = -(pay*10);
+			System.out.println(pay+"円失う");
+		}
+		else {
+			pay = -(pay*2);
+			System.out.println(pay+"円失う");
+		}
+		return pay;
+	}
+}
+	
+

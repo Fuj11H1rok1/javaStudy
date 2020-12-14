@@ -1,0 +1,33 @@
+package javastudy;
+
+import java.util.Scanner;
+
+public class methodPra {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		ここからメイン
+		
+		System.out.println("ログインIDを入力");
+//		int id =0;
+		Scanner i = new Scanner(System.in);
+//		id = i.nextInt();
+		id(i);
+		
+		
+		
+	}
+//	ここからメソッド
+	static void id(int i) {
+		String [] name = {"岩鬼","殿馬","里中","山田","微笑","上下","蛸田","高代","香車"};
+		System.out.println(name[i]);
+		
+//		=== int j はnameの要素数 ===
+		int j = name.length -1;
+		if(j<i)
+			System.out.println("登録されていません。");
+
+	}
+	
+
+}

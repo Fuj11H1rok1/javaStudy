@@ -1,0 +1,205 @@
+package javastudy;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
+
+public class genteiJanken {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String[]janken= {"グー","チョキ","パー"};
+		int gcp = janken.length -1 ;
+		
+		Scanner s = new Scanner(System.in);
+		Random r = new Random();
+		
+		int me ;
+		int cp ;
+		String myhand ;
+		String cphand ;
+		String mylist ;
+		String cplist ;
+		 
+//		プレイヤーの星
+		int mystar = 3;
+//		CPの星
+		int cpstar = 3;
+		
+//		自分の持ち札『グー(g)チョキ(c)パー(p)』各4枚
+		ArrayList<String> myhandList = new ArrayList<String>();
+		
+		System.out.println("自分の持ち札");
+ 		myhandList.add("グー");
+ 		myhandList.add("グー");
+ 		myhandList.add("グー");
+ 		myhandList.add("グー");
+ 		myhandList.add("チョキ");
+ 		myhandList.add("チョキ");
+ 		myhandList.add("チョキ");
+ 		myhandList.add("チョキ");
+ 		myhandList.add("パー");
+ 		myhandList.add("パー");
+ 		myhandList.add("パー");
+ 		myhandList.add("パー");
+ 		
+ 		System.out.println(myhandList);
+		int myhandStock = myhandList.size();
+		
+//		CPの持ち札『グー(g)チョキ(c)パー(p)』各4枚
+		ArrayList<String> cphandList = new ArrayList<String>();
+		 
+		System.out.println("CPの持ち札");
+ 		cphandList.add("グー");
+ 		cphandList.add("グー");
+ 		cphandList.add("グー");
+ 		cphandList.add("グー");
+ 		cphandList.add("チョキ");
+ 		cphandList.add("チョキ");
+ 		cphandList.add("チョキ");
+ 		cphandList.add("チョキ");
+ 		cphandList.add("パー");
+ 		cphandList.add("パー");
+ 		cphandList.add("パー");
+ 		cphandList.add("パー");
+		
+ 		System.out.println("残り"+cphandList.size()+"枚");
+		int cphandStock = cphandList.size();
+		
+		while((myhandStock > 0) && (cphandStock > 0))
+			{
+				me = s.nextInt();
+				//グー、チョキ、パー以外は選択させない
+				if(!(gcp >= me)) {
+					System.out.println("0~2から選択してください");
+					continue;
+				}
+				myhand = janken[me];
+				System.out.println("チェック（持ち札を選択）");
+//					出したい手札がまだリストに残っているか確認（真偽）
+			
+				boolean confi = false;
+				
+				for (String m : myhandList) {
+					if (myhand.contains(m)) {
+//						System.out.println("リストは以下の要素を含みます: " + m);
+						confi = true;
+					} else {
+//						System.out.println("リストは以下の要素を含みません: " + m);
+					}
+				}
+				 if(!(confi)) {
+					 System.out.println("手札に残っていません選び直してください");
+					 continue;
+				 }
+					 
+				//※持ち札リストから選択（自分）
+				for(int i = 0 ; i <= myhandList.size(); i++) {
+					mylist = myhandList.get(i);
+					
+					if(handComp(myhand,mylist)) {
+						myhandList.remove(myhandList.indexOf(myhand));
+						System.out.println("("+myhand+"を選択)");
+						break;
+					}
+					else{
+//						System.out.println("a");
+						continue;
+					}
+//					
+				}
+				
+				cp = r.nextInt(3);
+				cphand = janken[cp];
+				System.out.println("セット");
+				System.out.print("（CPの選択）");
+				//出したい手札がまだリストに残っているか確認（真偽）cp側
+				
+				//CP側の持ち札選択				
+				for (String c : cphandList) {
+					if (myhand.contains(c)) {
+//						System.out.println("リストは以下の要素を含みます: " + c);
+						System.out.println(true);
+						break;
+					} else {
+//						System.out.println("リストは以下の要素を含みません: " + c);
+						System.out.println("[CP選択中…]");
+						cp = r.nextInt(3);
+						continue;
+					}
+				}
+				 
+				
+				
+				System.out.println("オープン！");
+				System.out.println("（自分）"+janken[me]+"！！"+"　VS "+"（相手）"+janken[cp]+"！！");
+				
+				if( me==cp )
+				{
+					System.out.println("[あいこ]星の移動はありません");
+					System.out.println("▽自分の持ち札＆星の所持数"+mystar+"個");
+					System.out.println(myhandList);
+					System.out.println("[CP持ち札]残り"+cphandList.size()+"枚[CP星の所持数]"+cpstar+"個");
+				}
+				else if((me == 0 && cp == 1)||(me == 1 && cp == 2)||(me == 2 && cp == 0))
+				{
+					if(cpstar > 0) {
+						cpstar --;
+						mystar ++;
+						System.out.println("あなたの勝ちです！敗者から星を一つ奪えます");
+					}
+					else {
+						System.out.println("あなたの勝ちです！");
+						System.out.println("相手が星を持っていない為、星の移動はありません。");
+					}
+					System.out.println("▽自分の持ち札＆星の所持数"+mystar+"個");
+					System.out.println(myhandList);
+					System.out.println("[CP持ち札]残り"+cphandList.size()+"枚[CP星の所持数]"+cpstar+"個");
+					
+				}
+				else 
+				{
+					if(mystar > 0) {
+						mystar --;
+						cpstar ++;
+						System.out.println("CPの勝ちです！星が一つ奪われました");
+					}
+					else {
+						System.out.println("CPの勝ちです！");
+						System.out.println("星を持っていない為、星の移動はありません。");
+					}
+					System.out.println("▽自分の持ち札＆星の所持数"+mystar+"個");
+					System.out.println(myhandList);
+					System.out.println("[CP持ち札]残り"+cphandList.size()+"枚[CP星の所持数]"+cpstar+"個");
+					
+				}
+				
+				//持ち札の枚数を確認して、持ち札が0になったらループからbreak;
+				if(myhandStock == 0)
+					break;
+				
+			}
+		if(mystar >= 0 && mystar <= 3){
+			System.out.println("敗北。星は全て没収。");
+			System.out.println("地下労働行き");
+		}
+		else {
+			System.out.println("生き残り達成");
+			System.out.println(mystar+"00万円獲得");
+		}
+		
+		}
+	
+	//nameフィールド(手札とリスト)のみを比較、比較結果を戻り値でtrue,falseで返す
+	static boolean handComp(String hand,String list) {
+		int hashHand = hand.hashCode();
+		int hashList = list.hashCode();
+		if(hashHand == hashList)
+			return true;
+		else
+			return false;
+	}
+
+}

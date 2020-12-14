@@ -1,0 +1,43 @@
+package javastudy;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Jankenpon {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		Scanner s = new Scanner(System.in);
+		  Random rand = new Random();
+		  int userhandser = 0;
+		  int computer = 0;
+
+		  System.out.println("じゃんけんスタート");
+
+		   System.out.println("じゃんけん");
+		   System.out.println("0:グー,1チョキ,2パー" + "を選んでください");
+		   int userhand = s.nextInt();
+		   int cphand = 0;
+		   //　1回勝負じゃんけん　あいこの時に繰り返す
+		   
+		  do{
+		    
+		    
+		    if ((userhand == 0 && cphand == 1) || (userhand == 1 && cphand == 2) || (userhand == 2 && cphand == 0)) {
+		     System.out.println("あなたの勝ち");
+		    }
+		    else if ((userhand == 1 && cphand == 0) || (userhand == 2 && cphand == 1) || (userhand == 0 && cphand == 2)){
+		     System.out.println("コンピューターの勝ち");
+		    } 
+		    else if (userhand == cphand) {
+		    	userhand = s.nextInt();
+		    	cphand = rand.nextInt(3);
+		    	System.out.println("あいこ");
+		    }
+		   } while(userhand == cphand) ;
+		
+	}
+
+}

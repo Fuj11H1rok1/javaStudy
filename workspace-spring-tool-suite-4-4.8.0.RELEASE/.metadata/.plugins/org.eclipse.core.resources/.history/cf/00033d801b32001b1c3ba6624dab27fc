@@ -1,0 +1,54 @@
+package javastudy;
+
+import java.util.ArrayList;
+
+public class praJava {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+//		String[]name={"ありがとう"};
+//		
+//		String s = "ありがとう";
+//		
+//		if(name[0].equals(s)) {
+//			System.out.println("同じ");
+//		}
+//		else
+//			System.out.println("不一致");
+//	ArrayList<String> cphandList = new ArrayList<String>();
+//	 
+//	System.out.println("CPの持ち札");
+//		cphandList.add("グー");
+//		cphandList.add("グー");
+//		cphandList.add("グー");
+//		cphandList.add("グー");
+//		cphandList.add("チョキ");
+//		cphandList.add("チョキ");
+//		cphandList.add("チョキ");
+//		cphandList.add("チョキ");
+//		cphandList.add("パー");
+//		cphandList.add("パー");
+//		cphandList.add("パー");
+//		cphandList.add("パー");
+//		
+//		cphandList.get(4);
+//		System.out.println(cphandList.get(4));
+		
+		int a = 0;
+		int b = 1;
+		if(a == b) {
+		  System.out.println("trueの場合に実行");
+		}
+		else {
+		  System.out.println("falseの場合に実行");
+		}
+		int i = 0;
+		while(i < 10) {
+		  System.out.print(i + " ");
+		  i += 1;
+		}
+		
+	}
+
+}
